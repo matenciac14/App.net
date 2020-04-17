@@ -1,0 +1,29 @@
+﻿@using Curso.net.Models;
+@model List<MarcaCLS>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td width="10%">@Html.LabelFor(m=> Model[0].iidmarca)</td>
+            <td width="20%">@Html.LabelFor(m => Model[0].nombre)</td>
+            <td width="70%">@Html.LabelFor(m=> Model[0].descripcion)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.iidmarca</td>
+                <td>@item.nombre</td>
+                <td>@item.descripcion</td>
+
+            </tr>
+         }
+
+    </tbody>
+</table>
