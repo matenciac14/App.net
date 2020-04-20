@@ -1,5 +1,5 @@
 ﻿@using CursoNetCore.Models;
-@model List<SucursalCLS>
+@model List<ClienteCLS>
 @{
     ViewBag.Title = "Index";
 }
@@ -9,10 +9,11 @@
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <td width="10%">@Html.LabelFor(p => Model[0].iidsucursal)</td>
+            <td width="10%">@Html.LabelFor(p => Model[0].iidcliente)</td>
             <td width="20%">@Html.LabelFor(p => Model[0].nombre)</td>
-            <td width="20%">@Html.LabelFor(p => Model[0].telefono)</td>
-            <td width="60%">@Html.LabelFor(p => Model[0].email)</td>
+            <td width="20%">@Html.LabelFor(p => Model[0].apmaterno)</td>
+            <td width="20%">@Html.LabelFor(p => Model[0].appaterno)</td>
+            <td width="40%">@Html.LabelFor(p => Model[0].email)</td>
         </tr>
 
     </thead>
@@ -20,9 +21,10 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.iidsucursal</td>
+                <td>@item.iidcliente</td>
                 <td>@item.nombre</td>
-                <td>@item.telefono</td>
+                <td>@item.appaterno</td>
+                <td>@item.apmaterno</td>
                 <td>@item.email</td>
             </tr>
 
