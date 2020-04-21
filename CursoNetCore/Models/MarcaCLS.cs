@@ -19,8 +19,7 @@ namespace CursoNetCore.Models
         [Display(Name = "Descripcion Marca")]
         [Required]
         [StringLength(200, ErrorMessage = "LA longitud maxima es 200")]
-        public string descripcion { get; set; }
-        
+        public string descripcion { get; set; }        
 
         public int bhabilitado { get; set; }
     }
