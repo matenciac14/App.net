@@ -27,5 +27,15 @@ namespace CursoNetCore.Controllers
             }
             return View(ListaMarca);
         }
+        public ActionResult Agregar()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult Agregar()
+        //{
+        //    return View();
+        //}
     }
 }
