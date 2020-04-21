@@ -12,10 +12,13 @@
             <div>
                 @Html.LabelFor(p => p.nombre)
                 @Html.TextBoxFor(p => p.nombre, new { @class = "form-control" })
+                @Html.ValidationMessage("nombre", new { @class ="text-danger" })
             </div>
             <div>
                 @Html.LabelFor(p => p.descripcion)
                 @Html.TextBoxFor(p => p.descripcion, new { @class = "form-control" })
+                @Html.ValidationMessage("descripcion", new { @class = "text-danger" })
+
             </div>
             <div style="margin:auto; padding-top:10px" >
                 <input type="submit" class="btn btn-primary" value="Guardar"/>
