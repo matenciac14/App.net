@@ -29,5 +29,10 @@ namespace CursoNetCore.Controllers
             }
             return View(ListaCliente);
         }
+
+        public ActionResult Agregar()
+        {
+            return View();
+        }
     }
 }
