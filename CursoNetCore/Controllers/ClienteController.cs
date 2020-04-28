@@ -29,9 +29,26 @@ namespace CursoNetCore.Controllers
             }
             return View(ListaCliente);
         }
+        List<SelectListItem> ListaSexo;
+        private void llenarSexo()
+        {
+            using(var bd = new BDPasajeEntities())
+            {
+                ListaSexo = (from sexo in bd.Sexo
+                             where sexo.BHABILITADO == 1
+                             select new SelectListItem
+                             {
+                                 Text = sexo.NOMBRE,
+                                 Value = sexo.IIDSEXO.ToString()
+                             }
+                    ).ToList();
+            }
+        }
 
         public ActionResult Agregar()
         {
+            llenarSexo();
+            ViewBag.lista = ListaSexo;
             return View();
         }
     }
