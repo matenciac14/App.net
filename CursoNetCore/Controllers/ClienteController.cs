@@ -42,6 +42,7 @@ namespace CursoNetCore.Controllers
                                  Value = sexo.IIDSEXO.ToString()
                              }
                     ).ToList();
+                ListaSexo.Insert(0, new SelectListItem { Text = "-- Seleccione --", Value = "" });
             }
         }
 
@@ -50,6 +51,31 @@ namespace CursoNetCore.Controllers
             llenarSexo();
             ViewBag.lista = ListaSexo;
             return View();
+        }
+        [HttpPost]
+        public ActionResult Agregar(ClienteCLS oClienteCLS)
+        {
+            if (!ModelState.IsValid)
+            {
+                llenarSexo();
+                ViewBag.lista = ListaSexo;
+                return View(oClienteCLS);
+            }
+            using(var bd = new BDPasajeEntities())
+            {
+                Cliente oCliente = new Cliente();
+                oCliente.NOMBRE = oClienteCLS.nombre;
+                oCliente.APMATERNO = oClienteCLS.appaterno;
+                oCliente.APMATERNO = oClienteCLS.apmaterno;
+                oCliente.EMAIL = oClienteCLS.email;
+                oCliente.DIRECCION = oClienteCLS.direccion;
+                oCliente.IIDSEXO = oClienteCLS.iidsexo;
+                oCliente.TELEFONOCELULAR = oCliente.TELEFONOCELULAR;
+                oCliente.BHABILITADO = 1;
+                bd.Cliente.Add(oCliente);
+                bd.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
     }
 }
